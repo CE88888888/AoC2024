@@ -6,8 +6,6 @@ input = getInput(@__DIR__)
 function parseLines(lines)
     F = split.(lines,"   ") 
     F = parse.(Int,stack(F))
-    A = F[begin,:]
-    B = F[end,:]
     return F[begin,:], F[end,:]
 end
 
