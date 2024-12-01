@@ -6,24 +6,22 @@ input = getInput(@__DIR__)
 function parseLines(lines)
     F = split.(lines,"   ") 
     F = parse.(Int,stack(F))
-    return F
+    A = F[begin,:]
+    B = F[end,:]
+    return F[begin,:], F[end,:]
 end
 
 function part1(lines)
-    A = parseLines(lines)[begin,:]
-    B = parseLines(lines)[end,:]
+    A, B  = parseLines(lines)
     C = abs.(sort(B) - sort(A))
     return sum(C)
 end
 
 function part2(lines)
-    A = parseLines(lines)[begin,:]
-    B = parseLines(lines)[end,:]
-
+    A, B  = parseLines(lines)
     C = counter(B)
     D = map(x -> C[x]*x, A)
     return sum(D)
-
 end
 
  println("Part 1 example : $(part1(example))")
