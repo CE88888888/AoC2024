@@ -38,12 +38,12 @@ function part2(lines)
         if isValidRow(aap)
             safe += 1
         else
-            println(t, aap)
+            # println(t, aap)
         end
     end
 
 
-    return safe #486 TL 501TH 497NR
+    return safe #486 TL 501TH 497NR 500 505
 
 end
 
@@ -92,9 +92,9 @@ function isSomething(row)
                     popat!(row, i)
                     break
                 end
-                # als d ook afneemt dan verwijder b
+                # als d ook afneemt dan verwijder i+2
                 if d > 0
-                    popat!(row, i + 1)
+                    popat!(row, i+2)
                     break
                 end
 
@@ -123,7 +123,7 @@ function isSomething(row)
             d = row[i-1] - row[i]
             if a < 0 && b > 0
                 if d < 0
-                    popat!(row, i + 1)
+                    popat!(row, i + 2)
                     break
                 end
                 if d > 0
@@ -135,7 +135,7 @@ function isSomething(row)
             d = row[i-1] - row[i]
             if a > 0 && b < 0
                 if d > 0
-                    popat!(row, i + 1)
+                    popat!(row, i + 2)
                     break
                 end
                 if d < 0
@@ -201,89 +201,6 @@ function isSomething(row)
             popat!(row, i + 1)
             break
         end
-
-
-
-        # if a > 0 && b < 0
-        #     popat!(row, i + 1)
-        #     break
-        # end
-
-        # if a < 0 && b > 0
-        #     popat!(row, i + 1)
-        #     break
-        # end
-
-        # if b > 3 || b < -3
-        #     popat!(row, i + 1)
-        #     break
-        # end
-
-
-        # # Flat
-        # if a == 0 && b == 0
-        #     popat!(row, i + 1)
-        #     break
-        # end
-
-        # if c == 0
-        #     if i + 2 <= length(row) 
-        #         popat!(row, i + 2)
-        #         break
-        #     end
-        #     println("ennu")
-        # end
-
-        # if a > 0 && b < 0 && c > 0
-        #     if i == 1
-        #         d = row[i+2] - row[i+3]
-        #         if d < 0
-        #             popat!(row, i)
-        #             break
-        #         end
-        #     end
-        #     popat!(row, i + 1)
-        #     break
-        # end
-
-        # if a < 0 && b > 0 && c < 0
-        #     if i == 1
-        #         d = row[i+2] - row[i+3]
-        #         if d > 0
-        #             popat!(row, i)
-        #             break
-        #         end
-        #     end
-        #     popat!(row, i + 1)
-        #     break
-        # end
-
-        # if a != 0 && b == 0 && c != 0
-        #     popat!(row, i + 1)
-        #     break
-
-        # end
-
-        # if a == 0 && i == 1
-        #     popat!(row, i)
-        #     break
-        # end
-
-        # if a > 0 && b > 0
-        #     if a > 3 && b < 3
-        #         popat!(row, i)
-        #         break
-        #     end
-        #     continue
-        # end
-
-        # if a < 0 && b < 0
-        #     if a < -3 && b > -3
-        #         popat!(row, i)
-        #         break
-        #     end
-        #     continue
-        # end
 
     end
     return row
